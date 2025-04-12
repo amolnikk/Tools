@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    let currentDownloadUrl = null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -270,26 +271,46 @@
             processCompression();
         });
 
-        function processCompression() {
-            const originalCanvas = document.getElementById('originalCanvas');
-            const compressedCanvas = document.getElementById('compressedCanvas');
-            const quality = parseFloat(qualityRange.value);
+       // Modify the processCompression function
+function processCompression() {
+    const originalCanvas = document.getElementById('originalCanvas');
+    const compressedCanvas = document.getElementById('compressedCanvas');
+    const quality = parseFloat(qualityRange.value);
+    const downloadBtn = document.getElementById('downloadBtn');
 
-            compressedCanvas.width = originalCanvas.width;
-            compressedCanvas.height = originalCanvas.height;
-            const ctx = compressedCanvas.getContext('2d');
-            ctx.drawImage(originalCanvas, 0, 0);
+    // Clear previous URL if exists
+    if(currentDownloadUrl) {
+        URL.revokeObjectURL(currentDownloadUrl);
+    }
 
-            compressedCanvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                downloadBtn.href = url;
-                downloadBtn.download = `compressed-image-${Date.now()}.jpg`;
-            }, 'image/jpeg', quality);
-        }
+    compressedCanvas.width = originalCanvas.width;
+    compressedCanvas.height = originalCanvas.height;
+    const ctx = compressedCanvas.getContext('2d');
+    ctx.drawImage(originalCanvas, 0, 0);
 
-        downloadBtn.addEventListener('click', () => {
-            URL.revokeObjectURL(downloadBtn.href);
-        });
+    compressedCanvas.toBlob((blob) => {
+        // Create new object URL
+        currentDownloadUrl = URL.createObjectURL(blob);
+        
+        // Update download link
+        downloadBtn.href = currentDownloadUrl;
+        downloadBtn.download = `compressed-image-${Date.now()}.jpg`;
+        downloadBtn.style.display = 'block'; // Make sure button is visible
+    }, 'image/jpeg', quality);
+}
+
+// Update download button event listener
+downloadBtn.addEventListener('click', (e) => {
+    if(!currentDownloadUrl) {
+        e.preventDefault();
+        alert('Please compress an image first!');
+    }
+    // Automatically revoke URL after 1 minute
+    setTimeout(() => {
+        URL.revokeObjectURL(currentDownloadUrl);
+        currentDownloadUrl = null;
+    }, 60000);
+});
     </script>
 </body>
 </html>
