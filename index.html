@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FileMagic Pro - Ultimate File Conversion Toolkit</title>
+    <title>MultiTools Pro - Your All-in-One File Solution</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366F1;
-            --secondary: #4F46E5;
+            --primary: #4F46E5;
+            --secondary: #6366F1;
             --accent: #10B981;
             --background: #F8FAFC;
             --text: #1E293B;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
@@ -28,204 +27,236 @@
             line-height: 1.6;
         }
 
-        /* Enhanced Header */
-        .main-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem;
-            position: relative;
-            overflow: hidden;
+        /* Header Styles */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
         }
 
-        .header-content {
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 1;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
         /* Hero Section */
-        .super-hero {
-            padding: 6rem 1rem;
+        .hero {
             text-align: center;
-            position: relative;
-            background: linear-gradient(45deg, #f3f4f6dd, #e5e7ebdd),
-                        url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%23" opacity="0.1" d="M39.6,-41.1C53.7,-29.9,68.6,-19.2,72.1,-5.2C75.6,8.8,67.7,25.9,55.6,39.5C43.5,53.1,27.1,63.1,10.4,69.3C-6.3,75.5,-23.3,77.8,-35.3,69.8C-47.3,61.8,-54.3,43.5,-59.4,26.4C-64.5,9.3,-67.8,-6.6,-62.8,-19.1C-57.8,-31.6,-44.5,-40.7,-31.9,-52.1C-19.3,-63.5,-7.4,-77.2,3.4,-82.2C14.1,-87.1,28.3,-83.4,39.6,-41.1Z"/></svg>');
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Dynamic Tool Grid */
-        .smart-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #e2e8f0;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        /* Advanced Filter */
-        .tool-filter {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 2rem;
-            background: #e0e7ff;
-            color: var(--primary);
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active {
-            background: var(--primary);
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
         }
 
-        /* Stats Section */
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            padding: 4rem 2rem;
-            background: var(--primary);
-            color: white;
-            text-align: center;
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .stat-item {
-            padding: 1.5rem;
-            background: #ffffff1a;
-            border-radius: 1rem;
-        }
-
-        /* Interactive Demo */
-        .live-demo {
+        /* Tools Grid */
+        .tools-grid {
             max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
             background: white;
-            border-radius: 2rem;
-            box-shadow: var(--shadow);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Category Sections */
+        .category-section {
+            margin: 4rem auto;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 4rem 1rem;
+            margin-top: 4rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .smart-grid {
-                grid-template-columns: 1fr;
-                padding: 1rem;
+            .hero h1 {
+                font-size: 2rem;
             }
             
-            .super-hero {
-                padding: 4rem 1rem;
+            .tools-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <header class="main-header">
-        <nav class="header-content">
-            <div class="logo">FileMagic Pro</div>
-            <nav class="main-nav">
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">MultiTools Pro</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
                 <a href="#tools" class="nav-link">Tools</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
-            </nav>
+                <a href="#about" class="nav-link">About</a>
+            </div>
         </nav>
     </header>
 
-    <section class="super-hero">
+    <section class="hero">
         <div class="hero-content">
             <h1>Transform Your Files in Seconds</h1>
-            <p>Advanced toolkit for images, PDFs, and documents</p>
-            <div class="tool-filter">
-                <button class="filter-btn active">All Tools</button>
-                <button class="filter-btn">Images</button>
-                <button class="filter-btn">PDF</button>
-                <button class="filter-btn">Documents</button>
-            </div>
+            <p>All-in-one solution for PDF, images, videos, and more</p>
+            <button class="cta-button" style="margin-top: 2rem;">
+                Start Converting Now <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
     </section>
 
-    <section class="smart-grid" id="tools">
-        <!-- Image Tools -->
-        <article class="feature-card">
-            <div class="tool-meta">
-                <span class="tool-category">Images</span>
-                <h3>Smart Compression</h3>
-           </div>
-<p>AI-powered image optimization with quality control</p>
-<div class="tool-actions">
-    <a href="/tool/img-compress.html" class="action-btn">Try Now</a>
-    <a href="https://your-link-to-learn-more.com" class="action-btn ghost">Learn More</a>
-</div>
-
-        </article>
-
+    <main class="tools-grid">
         <!-- PDF Tools -->
-        <article class="feature-card">
-            <div class="tool-meta">
-                <span class="tool-category">PDF</span>
-                <h3>Secure Conversion</h3>
+        <div class="tool-card">
+            <i class="tool-icon fas fa-file-pdf"></i>
+            <h3>PDF Tools</h3>
+            <p>Compress, merge, split, and convert PDF files</p>
+            <div class="tool-actions" style="margin-top: 1rem;">
+                <button class="tool-button">Compress PDF</button>
+                <button class="tool-button">Merge PDF</button>
             </div>
-            <p>Encrypted PDF to Word/Excel conversion</p>
-            <div class="tool-actions">
-                <button class="action-btn">Try Now</button>
-                <button class="action-btn ghost">Learn More</button>
+        </div>
+
+        <!-- Image Tools -->
+        <div class="tool-card">
+            <i class="tool-icon fas fa-image"></i>
+            <h3>Image Tools</h3>
+            <p>Compress, convert, resize, and edit images</p>
+            <div class="tool-actions" style="margin-top: 1rem;">
+                <button class="tool-button">Optimize Image</button>
+                <button class="tool-button">Convert Format</button>
             </div>
-        </article>
+        </div>
 
-        <!-- Add 6-8 more feature cards -->
+        <!-- Video Tools -->
+        <div class="tool-card">
+            <i class="tool-icon fas fa-video"></i>
+            <h3>Video Tools</h3>
+            <p>Compress, convert, and edit video files</p>
+            <div class="tool-actions" style="margin-top: 1rem;">
+                <button class="tool-button">Compress Video</button>
+                <button class="tool-button">Convert Format</button>
+            </div>
+        </div>
+
+        <!-- More Tools -->
+        <div class="tool-card">
+            <i class="tool-icon fas fa-magic"></i>
+            <h3>More Tools</h3>
+            <p>Document conversion, OCR, and file transformations</p>
+            <div class="tool-actions" style="margin-top: 1rem;">
+                <button class="tool-button">Text Extract</button>
+                <button class="tool-button">File Converter</button>
+            </div>
+        </div>
+    </main>
+
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">Featured Tools</h2>
+            <a href="#all-tools" class="see-all">See All Tools →</a>
+        </div>
+        <div class="tools-grid">
+            <!-- Repeat tool cards here -->
+        </div>
     </section>
 
-    <section class="achievement-grid">
-        <div class="stat-item">
-            <h4>10M+</h4>
-            <p>Files Processed</p>
-        </div>
-        <div class="stat-item">
-            <h4>98%</h4>
-            <p>Accuracy Rate</p>
-        </div>
-        <div class="stat-item">
-            <h4>4.9/5</h4>
-            <p>User Rating</p>
-        </div>
-    </section>
-
-    <section class="live-demo">
-        <h2>Experience Live Conversion</h2>
-        <div class="demo-container">
-            <!-- Add interactive demo components -->
+    <section class="features">
+        <div class="features-container" style="max-width: 1200px; margin: 0 auto;">
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Secure Processing</h4>
+                <p>All files are processed securely and deleted automatically</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h4>Fast Conversions</h4>
+                <p>Process files in seconds using cloud-powered technology</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Mobile Friendly</h4>
+                <p>Works perfectly on all devices and browsers</p>
+            </div>
         </div>
     </section>
 
-    <!-- Additional Sections -->
+    <footer class="footer">
+        <p>© 2024 MultiTools Pro. All rights reserved.</p>
+        <div class="footer-links" style="margin-top: 1rem;">
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        // Add interactive functionality
+        document.querySelectorAll('.tool-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Add tool-specific functionality
+                alert('Tool clicked: ' + button.textContent);
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'mobile-menu';
+        // Add mobile menu functionality
+    </script>
 </body>
 </html>
