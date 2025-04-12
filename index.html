@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileMagic Pro - Ultimate File Conversion Toolkit</title>
+    <style>
+        :root {
+            --primary: #6366F1;
+            --secondary: #4F46E5;
+            --accent: #10B981;
+            --background: #F8FAFC;
+            --text: #1E293B;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Enhanced Header */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .super-hero {
+            padding: 6rem 1rem;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(45deg, #f3f4f6dd, #e5e7ebdd),
+                        url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%23" opacity="0.1" d="M39.6,-41.1C53.7,-29.9,68.6,-19.2,72.1,-5.2C75.6,8.8,67.7,25.9,55.6,39.5C43.5,53.1,27.1,63.1,10.4,69.3C-6.3,75.5,-23.3,77.8,-35.3,69.8C-47.3,61.8,-54.3,43.5,-59.4,26.4C-64.5,9.3,-67.8,-6.6,-62.8,-19.1C-57.8,-31.6,-44.5,-40.7,-31.9,-52.1C-19.3,-63.5,-7.4,-77.2,3.4,-82.2C14.1,-87.1,28.3,-83.4,39.6,-41.1Z"/></svg>');
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Dynamic Tool Grid */
+        .smart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Advanced Filter */
+        .tool-filter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            background: #e0e7ff;
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Stats Section */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            background: #ffffff1a;
+            border-radius: 1rem;
+        }
+
+        /* Interactive Demo */
+        .live-demo {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .smart-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .super-hero {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="header-content">
+            <div class="logo">FileMagic Pro</div>
+            <nav class="main-nav">
+                <a href="#tools" class="nav-link">Tools</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </nav>
+        </nav>
+    </header>
+
+    <section class="super-hero">
+        <div class="hero-content">
+            <h1>Transform Your Files in Seconds</h1>
+            <p>Advanced toolkit for images, PDFs, and documents</p>
+            <div class="tool-filter">
+                <button class="filter-btn active">All Tools</button>
+                <button class="filter-btn">Images</button>
+                <button class="filter-btn">PDF</button>
+                <button class="filter-btn">Documents</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="smart-grid" id="tools">
+        <!-- Image Tools -->
+        <article class="feature-card">
+            <div class="tool-meta">
+                <span class="tool-category">Images</span>
+                <h3>Smart Compression</h3>
+           </div>
+<p>AI-powered image optimization with quality control</p>
+<div class="tool-actions">
+    <a href="/img-compress.html" class="action-btn">Try Now</a>
+    <a href="https://your-link-to-learn-more.com" class="action-btn ghost">Learn More</a>
+</div>
+
+        </article>
+
+        <!-- PDF Tools -->
+        <article class="feature-card">
+            <div class="tool-meta">
+                <span class="tool-category">PDF</span>
+                <h3>Secure Conversion</h3>
+            </div>
+            <p>Encrypted PDF to Word/Excel conversion</p>
+            <div class="tool-actions">
+                <button class="action-btn">Try Now</button>
+                <button class="action-btn ghost">Learn More</button>
+            </div>
+        </article>
+
+        <!-- Add 6-8 more feature cards -->
+    </section>
+
+    <section class="achievement-grid">
+        <div class="stat-item">
+            <h4>10M+</h4>
+            <p>Files Processed</p>
+        </div>
+        <div class="stat-item">
+            <h4>98%</h4>
+            <p>Accuracy Rate</p>
+        </div>
+        <div class="stat-item">
+            <h4>4.9/5</h4>
+            <p>User Rating</p>
+        </div>
+    </section>
+
+    <section class="live-demo">
+        <h2>Experience Live Conversion</h2>
+        <div class="demo-container">
+            <!-- Add interactive demo components -->
+        </div>
+    </section>
+
+    <!-- Additional Sections -->
+</body>
+</html>
